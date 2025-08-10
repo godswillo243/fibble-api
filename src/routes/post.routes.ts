@@ -10,11 +10,10 @@ import {
   getUserPosts,
   likeUnlikePost,
 } from "../controllers/post.controller";
-import { checkAuth, checkEmailVerified } from "../middlewares/auth.middleware";
+import { checkAuth } from "../middlewares/auth.middleware";
 const postRouter = Router();
 
 postRouter.use(checkAuth);
-postRouter.use(checkEmailVerified);
 
 postRouter.post("/", createPost);
 postRouter.get("/feed", getPostFeed);
